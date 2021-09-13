@@ -30,6 +30,8 @@ export default class App extends Component {
 
     render() {
         const { good, neutral, bad } = this.state;
+        const isFeedbackGiven = good > 0 || neutral > 0 || bad > 0;
+
         return (
             <Section title="Please leave feedback">
                 <FeedbackOptions
@@ -38,7 +40,7 @@ export default class App extends Component {
                 />
 
                 <Section title="Statistics">
-                    {good > 0 || neutral > 0 || bad > 0 ? (
+                    {isFeedbackGiven ? (
                         <Statistics
                             good={good}
                             neutral={neutral}
